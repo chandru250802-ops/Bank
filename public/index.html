@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🏦</span>
+                <span>Bank Management System</span>
+            </div>
+            <div id="nav-user-info" class="nav-user-info" style="display: none;">
+                <span id="nav-username"></span>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Login/Register Section -->
+        <div id="auth-section" class="auth-section">
+            <div class="auth-tabs">
+                <button class="tab-button active" onclick="switchTab('login')">Login</button>
+                <button class="tab-button" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-tab" class="tab-content active">
+                <h2>Login to Your Account</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                    <div id="login-message" class="message"></div>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-tab" class="tab-content">
+                <h2>Create New Account</h2>
+                <form onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" required placeholder="Choose a username (3+ chars)">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required placeholder="Create a password (6+ chars)">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                    <div id="register-message" class="message"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="dashboard-section" style="display: none;">
+            <div class="dashboard-header">
+                <h1>Welcome, <span id="username-display">User</span>!</h1>
+                <p>Manage your bank account securely</p>
+            </div>
+
+            <!-- Balance Card -->
+            <div class="balance-card">
+                <h3>Account Balance</h3>
+                <div class="balance-amount" id="balance-display">₹0.00</div>
+                <button class="btn-refresh" onclick="refreshBalance()">🔄 Refresh</button>
+            </div>
+
+            <!-- Transaction Controls -->
+            <div class="transaction-controls">
+                <div class="control-card">
+                    <h3>💰 Deposit Money</h3>
+                    <div class="form-group">
+                        <label for="deposit-amount">Amount to Deposit</label>
+                        <input type="number" id="deposit-amount" placeholder="Enter amount" min="0.01" step="0.01">
+                    </div>
+                    <button class="btn-success" onclick="handleDeposit()">Deposit</button>
+                    <div id="deposit-message" class="message"></div>
+                </div>
+
+                <div class="control-card">
+                    <h3>💳 Withdraw Money</h3>
+                    <div class="form-group">
+                        <label for="withdraw-amount">Amount to Withdraw</label>
+                        <input type="number" id="withdraw-amount" placeholder="Enter amount" min="0.01" step="0.01">
+                    </div>
+                    <button class="btn-danger" onclick="handleWithdraw()">Withdraw</button>
+                    <div id="withdraw-message" class="message"></div>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="transaction-history">
+                <h3>📋 Transaction History</h3>
+                <div id="transactions-list" class="transactions-list">
+                    <p class="placeholder">No transactions yet</p>
+                </div>
+                <button class="btn-secondary" onclick="loadTransactions()">Refresh History</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Bank Management System | Built with C++ Backend & PostgreSQL</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

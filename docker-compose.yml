@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  bank-api:
+    build: .
+    container_name: bank-management-api
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=postgresql://neondb_owner:npg_nIPaFKf2rp6x@ep-crimson-hill-a4ef2pzo-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require
+      - FLASK_ENV=production
+      - FLASK_DEBUG=False
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: PostgreSQL for local development
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: bank-postgres
+  #   environment:
+  #     POSTGRES_DB: bank_db
+  #     POSTGRES_USER: bankuser
+  #     POSTGRES_PASSWORD: bankpass
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #
+  # volumes:
+  #   postgres_data:

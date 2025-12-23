@@ -1,0 +1,10 @@
+^C:\USERS\CHANDRASEKARANR\DESKTOP\BANK\SERVER\CMAKEFILES\AA5514C0C6A14156C8E25062C98DF5C5\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/ChandrasekaranR/Desktop/Bank/server -BC:/Users/ChandrasekaranR/Desktop/Bank/server --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/ChandrasekaranR/Desktop/Bank/server/BankServer.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

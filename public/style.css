@@ -1,0 +1,514 @@
+/* ==================== GENERAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* ==================== NAVBAR STYLES ==================== */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.nav-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: #fff;
+}
+
+/* ==================== CONTAINER STYLES ==================== */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    flex: 1;
+    width: 100%;
+}
+
+/* ==================== AUTH SECTION ==================== */
+.auth-section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-tabs {
+    display: flex;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #667eea;
+    color: white;
+    border-bottom: 3px solid #764ba2;
+}
+
+.tab-button:hover {
+    background-color: #f0f0f0;
+}
+
+.tab-button.active:hover {
+    background-color: #667eea;
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==================== FORM STYLES ==================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.1);
+}
+
+/* ==================== BUTTON STYLES ==================== */
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-secondary,
+.btn-logout,
+.btn-refresh {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-success {
+    background-color: #48bb78;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #38a169;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+}
+
+.btn-danger {
+    background-color: #f56565;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #e53e3e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 101, 101, 0.4);
+}
+
+.btn-secondary {
+    background-color: #718096;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4a5568;
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: #f56565;
+    color: white;
+    padding: 0.5rem 1rem;
+    width: auto;
+}
+
+.btn-logout:hover {
+    background-color: #e53e3e;
+}
+
+.btn-refresh {
+    background-color: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    width: auto;
+    margin-left: 1rem;
+}
+
+.btn-refresh:hover {
+    background-color: #5568d3;
+}
+
+/* ==================== MESSAGE STYLES ==================== */
+.message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    min-height: 1.5rem;
+}
+
+.message.success {
+    background-color: #c6f6d5;
+    color: #22543d;
+    border: 1px solid #9ae6b4;
+}
+
+.message.error {
+    background-color: #fed7d7;
+    color: #742a2a;
+    border: 1px solid #fc8181;
+}
+
+.message.info {
+    background-color: #bee3f8;
+    color: #2c5282;
+    border: 1px solid #90cdf4;
+}
+
+/* ==================== DASHBOARD SECTION ==================== */
+.dashboard-section {
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* ==================== BALANCE CARD ==================== */
+.balance-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: slideUp 0.5s ease 0.1s both;
+}
+
+.balance-card h3 {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.balance-amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 1.5rem;
+}
+
+/* ==================== TRANSACTION CONTROLS ==================== */
+.transaction-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    animation: slideUp 0.5s ease 0.2s both;
+}
+
+.control-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.control-card h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.control-card .btn-success,
+.control-card .btn-danger {
+    margin-top: 1rem;
+}
+
+/* ==================== TRANSACTION HISTORY ==================== */
+.transaction-history {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.5s ease 0.3s both;
+}
+
+.transaction-history h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.transactions-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.transaction-item:hover {
+    background-color: #f9f9f9;
+}
+
+.transaction-type {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.transaction-type.deposit {
+    color: #48bb78;
+}
+
+.transaction-type.withdraw {
+    color: #f56565;
+}
+
+.transaction-amount {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.transaction-amount.deposit {
+    color: #48bb78;
+}
+
+.transaction-amount.withdraw {
+    color: #f56565;
+}
+
+.transaction-date {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.placeholder {
+    text-align: center;
+    color: #999;
+    padding: 2rem;
+}
+
+.transaction-history .btn-secondary {
+    width: 100%;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .transaction-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .nav-user-info {
+        gap: 1rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .balance-amount {
+        font-size: 2.5rem;
+    }
+
+    .auth-section {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-logo span:last-child {
+        display: none;
+    }
+
+    .tab-button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .tab-content {
+        padding: 1.5rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .balance-amount {
+        font-size: 2rem;
+    }
+}
+
+/* ==================== SCROLLBAR STYLING ==================== */
+.transactions-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.transactions-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.transactions-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.transactions-list::-webkit-scrollbar-thumb:hover {
+    background: #5568d3;
+}
