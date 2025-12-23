@@ -1,5 +1,5 @@
 // ==================== GLOBAL VARIABLES ====================
-const API_BASE_URL = 'http://127.0.0.1:8080';
+const API_BASE_URL = 'https://bank-9k0m.onrender.com'; // Render backend URL
 const USE_MOCK_DATA = false; // Set to true for offline testing
 let currentSessionToken = null;
 let currentUsername = null;
